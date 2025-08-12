@@ -13,6 +13,8 @@ This package is still in development, and new features are added regularly. To u
 https://plutojl.org/en/docs/packages/#updating-packages
 
 
+## Documentation
+Read the documentation at https://bmlip.github.io/BmlipTeachingTools.jl/src/notebook.html
 
-## Development
-This package is being developed alongside the development of course materials for https://github.com/bmlip/course. The package uses SemVer version numbering, so you can already use this package for your own course.
+## Use BmlipTeachingTools.jl in your own course!
+This package is being developed alongside the development of course materials for https://github.com/bmlip/course, but you can already start using this package for your own course.

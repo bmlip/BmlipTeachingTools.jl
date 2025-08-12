@@ -7,19 +7,39 @@ using InteractiveUtils
 # ╔═╡ 90ad6438-7fd5-422c-a0f4-52a220919194
 # ╠═╡ skip_as_script = true
 #=╠═╡
+# This cell activates the package environment from the package. This cell is "Disabled in file" (see the grey line on the right), because we don't want to call Pkg.activate when people use this package.
 begin
 	import Pkg
 	Pkg.activate("..")
 	Pkg.instantiate()
-
 end
   ╠═╡ =#
 
 # ╔═╡ 214ecd8c-2483-4fb0-a3ae-6adc58f17e14
+# The dependency imports are here in a different cell, so that these don't get "Disabled in file". If this would happen, then all anything that depends on these packages get "Disabled in file" indirectly, and nothing would work.
 begin
 	using PlutoTeachingTools, PlutoUI
 	using HypertextLiteral
 end
+
+# ╔═╡ 6ca174aa-6395-485d-a396-83e220dbfcb7
+#=╠═╡
+md"""
+_Documentation for BmlipTeachingTools **version $(Pkg.project().version |> string)**._
+"""
+  ╠═╡ =#
+
+# ╔═╡ d49c5051-7e42-463e-9457-0c515cd5c046
+md"""
+## How to use BmlipTeachingTools
+**Add this code** to your notebook:
+
+```julia
+using BmlipTeachingTools
+```
+
+This package re-exports PlutoTeachingTools, PlutoUI and HypertextLiteral, so you should **remove those imports**.
+"""
 
 # ╔═╡ 30ac81f5-a086-43ae-bbf7-853ef8bed7ac
 
@@ -161,7 +181,9 @@ x = x
 
 
 # ╔═╡ Cell order:
+# ╟─6ca174aa-6395-485d-a396-83e220dbfcb7
 # ╠═dab90f4b-5451-466f-a1d1-7128429884d0
+# ╟─d49c5051-7e42-463e-9457-0c515cd5c046
 # ╟─30ac81f5-a086-43ae-bbf7-853ef8bed7ac
 # ╠═a0912faa-ba08-48fd-b03e-fa0f0b27c690
 # ╠═1cb34632-8657-42e5-ab0c-00b9e66ca24c
