@@ -1,12 +1,13 @@
 module BmlipTeachingTools
+using Reexport
 
-using PlutoTeachingTools
+@reexport using PlutoTeachingTools, PlutoUI
+@reexport using HypertextLiteral
 
 
 
+include("notebook.jl")
 
-function greet(s)
-    "Hello, $s"
-end
+
 
 end
