@@ -239,7 +239,7 @@ begin
 	export exercise_statement
 
 	exercises(suffix=""; prefix="", kwargs...) = 
-		section_outline("$(prefix)Exercises", suffix; color="yellow", kwargs...)
+		section_outline("$(prefix)Exercises", suffix; color="yellow", header_level=1, kwargs...)
 	export exercises
 
 	
