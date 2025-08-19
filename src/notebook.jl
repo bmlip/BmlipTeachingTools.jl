@@ -86,7 +86,14 @@ md"""
 """
 
 # ╔═╡ ca9c15b6-d9fc-4855-bc9b-734b112ea033
-title(contents) = @htl """<h1 style="font-size: 3rem; border-bottom: none; text-shadow: -3px 3px #a2d4ff5c;">$contents</h1>"""
+title(contents) = @htl """<secret-h1 style="
+	font-size: 3rem; 
+	border-bottom: none; 
+	text-shadow: -3px 3px #a2d4ff5c;
+	font-family: 'Vollkorn', Palatino, Georgia, serif;
+	color: var(--pluto-output-h-color);
+	font-weight: 700;
+	">$contents</secret-sh1>"""
 
 # ╔═╡ dab90f4b-5451-466f-a1d1-7128429884d0
 title("Examples of using BmlipTeachingTools.jl")
