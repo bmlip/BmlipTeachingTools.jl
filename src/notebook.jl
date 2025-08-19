@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.15
+# v0.20.16
 
 using Markdown
 using InteractiveUtils
@@ -58,6 +58,23 @@ md"""
 You can use `open=true` to show the box open by default.
 """
 
+# ╔═╡ 66b93f27-9eda-445c-b4b1-1bf36cf74a3a
+
+
+# ╔═╡ e8d501b1-5424-4fdd-aa72-8ebdc5b4f7e3
+md"""
+# From PlutoTeachingtools:
+"""
+
+# ╔═╡ 73c6b1e4-52e7-42b4-82f7-c3ff0a951dfc
+NotebookCard
+
+# ╔═╡ 1b8ada7b-4996-4d75-baea-cc1f6ac74f5b
+hint("Here is a secret tip!")
+
+# ╔═╡ 3af20543-447f-4525-ad99-6f4ccdc2b96e
+TODO("document this")
+
 # ╔═╡ 9f42a11b-97bd-4a7d-94c9-ba74494ae4d0
 md"""
 # Appendix
@@ -110,13 +127,20 @@ end
 begin
 	challenge_statement(args...; kwargs...) = 
 		section_outline("Challenge:", args...; color="red", kwargs...)
+	export challenge_statement
 	challenge_solution(args...; kwargs...) = 
 		section_outline("Challenge Revisited:", args...; color="red", kwargs...)
 	export challenge_solution
 	
-	exercise_statement(args...; kwargs...) = 
-		section_outline("Exercise:", args...; color="yellow", kwargs...)
+	exercise_statement(args...; prefix="", kwargs...) = 
+		section_outline("$(prefix)Exercise:", args...; color="yellow", kwargs...)
 	export exercise_statement
+
+	exercises(suffix=""; prefix="", kwargs...) = 
+		section_outline("$(prefix)Exercises", suffix; color="yellow", kwargs...)
+	export exercises
+
+	
 end
 
 # ╔═╡ 24dd4ffe-372a-402d-ae49-27a4cfb6430c
@@ -127,6 +151,12 @@ challenge_solution("Throwing dice")
 
 # ╔═╡ 9bf5caa5-f7cb-4d43-a760-b8b67229eb2d
 exercise_statement("Your turn")
+
+# ╔═╡ cd6c79de-3d26-4877-9e56-4c59d9d36535
+exercise_statement("Your turn"; prefix="Inference ")
+
+# ╔═╡ 3b7b2e83-c1db-44ad-ad4e-52752c3e4d51
+exercises()
 
 # ╔═╡ a2704374-33c2-479e-bad0-1bac6c244db1
 md"""
@@ -168,14 +198,14 @@ begin
 end
 
 # ╔═╡ ed2f0fe9-0078-44c8-a0d2-4f25c50fddaa
-md"""
+hide_solution(md"""
 It's trivial!
 
 ```math
 x = x
 ```
 
-""" |> hide_solution
+""")
 
 # ╔═╡ 6c723aec-e620-4820-b5e3-f7d55c4bb1dc
 
@@ -193,10 +223,17 @@ x = x
 # ╠═38946e4f-6c20-4b3a-9203-81b6b76fee66
 # ╟─bfb4762c-3027-47b2-bf78-128b379b6c68
 # ╠═9bf5caa5-f7cb-4d43-a760-b8b67229eb2d
+# ╠═cd6c79de-3d26-4877-9e56-4c59d9d36535
+# ╠═3b7b2e83-c1db-44ad-ad4e-52752c3e4d51
 # ╟─3f9e46d2-cc98-4a7e-a270-b033b09d349c
 # ╠═ed2f0fe9-0078-44c8-a0d2-4f25c50fddaa
 # ╟─e4fd31f0-5ee6-43d9-a2f8-6e555a69b860
 # ╠═5f298ea0-ce92-411d-9a50-6d7964ab51e2
+# ╟─66b93f27-9eda-445c-b4b1-1bf36cf74a3a
+# ╟─e8d501b1-5424-4fdd-aa72-8ebdc5b4f7e3
+# ╠═73c6b1e4-52e7-42b4-82f7-c3ff0a951dfc
+# ╠═1b8ada7b-4996-4d75-baea-cc1f6ac74f5b
+# ╠═3af20543-447f-4525-ad99-6f4ccdc2b96e
 # ╟─9f42a11b-97bd-4a7d-94c9-ba74494ae4d0
 # ╠═90ad6438-7fd5-422c-a0f4-52a220919194
 # ╠═214ecd8c-2483-4fb0-a3ae-6adc58f17e14
