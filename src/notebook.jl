@@ -99,7 +99,15 @@ You can use `@bind` or `@bindname`, together with `Slider` to create interactive
 """
 
 # ╔═╡ bd00941b-4d75-40a8-a918-dff43bcc8bdd
+# ╠═╡ skip_as_script = true
+#=╠═╡
 @bind apples Slider(10:100)
+  ╠═╡ =#
+
+# ╔═╡ 6d37369c-f0ac-4686-bb60-c5b795b60c1a
+#=╠═╡
+apples
+  ╠═╡ =#
 
 # ╔═╡ c1f5b643-7134-4cc9-9681-c25923c3cc0f
 
@@ -110,7 +118,15 @@ With `@bindname`, the name of the variable is shown:
 """
 
 # ╔═╡ f7e7c401-6d27-4ea5-b8d8-6956abcc702e
+# ╠═╡ skip_as_script = true
+#=╠═╡
 @bindname pears Slider(10:100)
+  ╠═╡ =#
+
+# ╔═╡ 904bd8ef-a077-4897-80a7-198c0c3aeee2
+#=╠═╡
+pears
+  ╠═╡ =#
 
 # ╔═╡ 232807a9-864c-4857-97e4-2436fdd458c0
 
@@ -121,10 +137,15 @@ You can use the `default` keyword argument to `Slider`:
 """
 
 # ╔═╡ 769a62f1-e112-48a0-a053-f751bca34143
+# ╠═╡ skip_as_script = true
+#=╠═╡
 @bindname oranges Slider(10:100; default=90)
+  ╠═╡ =#
 
 # ╔═╡ 608c6f32-a525-4e81-ba7c-08c0b347317a
-pears
+#=╠═╡
+oranges
+  ╠═╡ =#
 
 # ╔═╡ dba7271d-fe4b-4058-ba5e-d2cd3b72f158
 
@@ -163,6 +184,8 @@ md"""
 """
 
 # ╔═╡ 45c6db01-38ac-4779-a724-af8ac3a0ac66
+# ╠═╡ skip_as_script = true
+#=╠═╡
 HiddenDocs(mod, name) = details(
 	@htl("Show docstring for <code>$name</code>"), 
 	@htl """
@@ -171,9 +194,12 @@ HiddenDocs(mod, name) = details(
 	$(Base.Docs.doc(Base.Docs.Binding(mod, name)))
 	</div>
 	""")
+  ╠═╡ =#
 
 # ╔═╡ 577cd8a0-ccb8-4470-9bdb-99f9936407f5
+#=╠═╡
 HiddenDocs(@__MODULE__, :NotebookCard)
+  ╠═╡ =#
 
 # ╔═╡ e1561b0f-b544-4bf0-bf6c-d96c43b689c2
 md"""
@@ -339,9 +365,11 @@ x = x
 # ╟─941c371c-11a2-4aee-9729-c1ec276c3460
 # ╟─ec874161-66ed-4079-81ac-b22db2328614
 # ╠═bd00941b-4d75-40a8-a918-dff43bcc8bdd
+# ╠═6d37369c-f0ac-4686-bb60-c5b795b60c1a
 # ╟─c1f5b643-7134-4cc9-9681-c25923c3cc0f
 # ╟─c2e1c65d-9e25-43c8-ab11-10038e604046
 # ╠═f7e7c401-6d27-4ea5-b8d8-6956abcc702e
+# ╠═904bd8ef-a077-4897-80a7-198c0c3aeee2
 # ╟─232807a9-864c-4857-97e4-2436fdd458c0
 # ╟─d29a2dfd-07a1-4f73-801d-f227d0a198b0
 # ╠═769a62f1-e112-48a0-a053-f751bca34143
