@@ -4,6 +4,18 @@
 using Markdown
 using InteractiveUtils
 
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    #! format: off
+    return quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+    #! format: on
+end
+
 # ╔═╡ 90ad6438-7fd5-422c-a0f4-52a220919194
 # ╠═╡ skip_as_script = true
 #=╠═╡
@@ -58,6 +70,73 @@ md"""
 You can use `open=true` to show the box open by default.
 """
 
+# ╔═╡ 49602540-eb21-4c23-9f8c-3d8b819e52ef
+md"""
+# Highlights from PlutoUI
+"""
+
+# ╔═╡ 2ba9d691-131d-4117-ac3c-73e55ff392b1
+md"""
+You can use `NotebookCard` to create a nice link to another notebook.
+
+Use the **URL to the notebook** as the argument.
+"""
+
+# ╔═╡ 90d3ea39-f38d-4def-8bcb-24f25f25c95a
+NotebookCard("https://bmlip.github.io/course/minis/Distributions%20in%20Julia.html")
+
+# ╔═╡ 3031b716-08a7-49fc-aaea-2ad518d6093a
+
+
+# ╔═╡ 941c371c-11a2-4aee-9729-c1ec276c3460
+md"""
+## Sliders
+"""
+
+# ╔═╡ ec874161-66ed-4079-81ac-b22db2328614
+md"""
+You can use `@bind` or `@bindname`, together with `Slider` to create interactive variables:
+"""
+
+# ╔═╡ bd00941b-4d75-40a8-a918-dff43bcc8bdd
+@bind apples Slider(10:100)
+
+# ╔═╡ c1f5b643-7134-4cc9-9681-c25923c3cc0f
+
+
+# ╔═╡ c2e1c65d-9e25-43c8-ab11-10038e604046
+md"""
+With `@bindname`, the name of the variable is shown:
+"""
+
+# ╔═╡ f7e7c401-6d27-4ea5-b8d8-6956abcc702e
+@bindname pears Slider(10:100)
+
+# ╔═╡ 232807a9-864c-4857-97e4-2436fdd458c0
+
+
+# ╔═╡ d29a2dfd-07a1-4f73-801d-f227d0a198b0
+md"""
+You can use the `default` keyword argument to `Slider`:
+"""
+
+# ╔═╡ 769a62f1-e112-48a0-a053-f751bca34143
+@bindname oranges Slider(10:100; default=90)
+
+# ╔═╡ 608c6f32-a525-4e81-ba7c-08c0b347317a
+pears
+
+# ╔═╡ dba7271d-fe4b-4058-ba5e-d2cd3b72f158
+
+
+# ╔═╡ 02ea98fd-46d3-4c70-a04a-39f606aebbe9
+md"""
+To see all the possible input widgets, take a look at the PlutoUI docs:
+"""
+
+# ╔═╡ eb795e2b-c246-47b6-a45d-d60d211eb325
+NotebookCard("https://featured.plutojl.org/basic/plutoui.jl")
+
 # ╔═╡ 66b93f27-9eda-445c-b4b1-1bf36cf74a3a
 
 
@@ -73,12 +152,28 @@ NotebookCard
 hint("Here is a secret tip!")
 
 # ╔═╡ 3af20543-447f-4525-ad99-6f4ccdc2b96e
-TODO("document this")
+TODO("I still need to do this!")
+
+# ╔═╡ 21016357-2813-4f74-adab-ddde0b8b704b
+
 
 # ╔═╡ 9f42a11b-97bd-4a7d-94c9-ba74494ae4d0
 md"""
 # Appendix
 """
+
+# ╔═╡ 45c6db01-38ac-4779-a724-af8ac3a0ac66
+HiddenDocs(mod, name) = details(
+	@htl("Show docstring for <code>$name</code>"), 
+	@htl """
+	<div class="pluto-docs-binding">
+	<span id="$(name)">$(name)</span>
+	$(Base.Docs.doc(Base.Docs.Binding(mod, name)))
+	</div>
+	""")
+
+# ╔═╡ 577cd8a0-ccb8-4470-9bdb-99f9936407f5
+HiddenDocs(@__MODULE__, :NotebookCard)
 
 # ╔═╡ e1561b0f-b544-4bf0-bf6c-d96c43b689c2
 md"""
@@ -236,12 +331,32 @@ x = x
 # ╠═ed2f0fe9-0078-44c8-a0d2-4f25c50fddaa
 # ╟─e4fd31f0-5ee6-43d9-a2f8-6e555a69b860
 # ╠═5f298ea0-ce92-411d-9a50-6d7964ab51e2
+# ╟─49602540-eb21-4c23-9f8c-3d8b819e52ef
+# ╟─2ba9d691-131d-4117-ac3c-73e55ff392b1
+# ╠═90d3ea39-f38d-4def-8bcb-24f25f25c95a
+# ╟─577cd8a0-ccb8-4470-9bdb-99f9936407f5
+# ╟─3031b716-08a7-49fc-aaea-2ad518d6093a
+# ╟─941c371c-11a2-4aee-9729-c1ec276c3460
+# ╟─ec874161-66ed-4079-81ac-b22db2328614
+# ╠═bd00941b-4d75-40a8-a918-dff43bcc8bdd
+# ╟─c1f5b643-7134-4cc9-9681-c25923c3cc0f
+# ╟─c2e1c65d-9e25-43c8-ab11-10038e604046
+# ╠═f7e7c401-6d27-4ea5-b8d8-6956abcc702e
+# ╟─232807a9-864c-4857-97e4-2436fdd458c0
+# ╟─d29a2dfd-07a1-4f73-801d-f227d0a198b0
+# ╠═769a62f1-e112-48a0-a053-f751bca34143
+# ╠═608c6f32-a525-4e81-ba7c-08c0b347317a
+# ╟─dba7271d-fe4b-4058-ba5e-d2cd3b72f158
+# ╟─02ea98fd-46d3-4c70-a04a-39f606aebbe9
+# ╟─eb795e2b-c246-47b6-a45d-d60d211eb325
 # ╟─66b93f27-9eda-445c-b4b1-1bf36cf74a3a
 # ╟─e8d501b1-5424-4fdd-aa72-8ebdc5b4f7e3
 # ╠═73c6b1e4-52e7-42b4-82f7-c3ff0a951dfc
 # ╠═1b8ada7b-4996-4d75-baea-cc1f6ac74f5b
 # ╠═3af20543-447f-4525-ad99-6f4ccdc2b96e
+# ╟─21016357-2813-4f74-adab-ddde0b8b704b
 # ╟─9f42a11b-97bd-4a7d-94c9-ba74494ae4d0
+# ╟─45c6db01-38ac-4779-a724-af8ac3a0ac66
 # ╠═90ad6438-7fd5-422c-a0f4-52a220919194
 # ╠═214ecd8c-2483-4fb0-a3ae-6adc58f17e14
 # ╟─e1561b0f-b544-4bf0-bf6c-d96c43b689c2
