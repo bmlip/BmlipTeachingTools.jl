@@ -7,11 +7,17 @@ using Markdown
     r(x) = repr(MIME"text/html"(), x) != ""
     
     
+    @test r(challenge_statement("asdf"))
+    @test r(challenge_solution("asdf"))
     @test r(inference_example("asdf"))
     @test r(code_example("asdf"))
+    @test r(example("asdf"))
+    @test r(exercises())
+    @test r(exercises(prefix="Inference", big=true))
+    @test r(exercise_statement("asdf"))
+    @test r(exercise_statement("asdf"; prefix="asdf"))
     @test r(hide_solution("asdf"; open=false))
     @test r(hide_proof(md"asdf"))
-    
     
     
     # PlutoTeachingTools reexport
