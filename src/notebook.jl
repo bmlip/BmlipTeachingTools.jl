@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.16
+# v0.20.17
 
 using Markdown
 using InteractiveUtils
@@ -170,13 +170,46 @@ md"""
 NotebookCard
 
 # ╔═╡ 1b8ada7b-4996-4d75-baea-cc1f6ac74f5b
+# ╠═╡ skip_as_script = true
+#=╠═╡
 hint("Here is a secret tip!")
+  ╠═╡ =#
 
 # ╔═╡ 3af20543-447f-4525-ad99-6f4ccdc2b96e
+# ╠═╡ skip_as_script = true
+#=╠═╡
 TODO("I still need to do this!")
+  ╠═╡ =#
+
+# ╔═╡ f846b527-9cfc-4412-8b12-35dfec47840f
+# ╠═╡ skip_as_script = true
+#=╠═╡
+keyconcept(
+	"", 
+	md"""
+	Here is something important that you should remember from this class.
+	"""
+)
+  ╠═╡ =#
+
+# ╔═╡ a0f06078-5caf-4312-9ad9-0719d40d29c3
+# ╠═╡ skip_as_script = true
+#=╠═╡
+keyconcept(
+	"Now with a title", 
+	md"""
+	Here is something important that you should remember from this class.
+	"""
+)
+  ╠═╡ =#
 
 # ╔═╡ 21016357-2813-4f74-adab-ddde0b8b704b
 
+
+# ╔═╡ 51cbb5ef-9f8f-4570-8a35-5f6415302b9c
+md"""
+At the end of the lecture, you can use `keyconceptsummary` to generate an **automatic summary** of all key concepts in the lecture:
+"""
 
 # ╔═╡ 9f42a11b-97bd-4a7d-94c9-ba74494ae4d0
 md"""
@@ -304,6 +337,8 @@ begin
 end
 
 # ╔═╡ 5f298ea0-ce92-411d-9a50-6d7964ab51e2
+# ╠═╡ skip_as_script = true
+#=╠═╡
 md"""
 It's trivial!
 
@@ -312,6 +347,7 @@ x = x
 ```
 
 """ |> hide_proof(open=true)
+  ╠═╡ =#
 
 # ╔═╡ 06051ef2-08b0-4d7d-bff9-9c2d407c65cc
 begin
@@ -326,6 +362,8 @@ begin
 end
 
 # ╔═╡ ed2f0fe9-0078-44c8-a0d2-4f25c50fddaa
+# ╠═╡ skip_as_script = true
+#=╠═╡
 hide_solution(md"""
 It's trivial!
 
@@ -334,9 +372,106 @@ x = x
 ```
 
 """)
+  ╠═╡ =#
 
 # ╔═╡ 6c723aec-e620-4820-b5e3-f7d55c4bb1dc
+keyconceptsummary(; header_text="") = @htl """
+<div>
+$(header_text === nothing || header_text == "" ? nothing : @htl("<h1>$header_text</h1>"))
 
+<div class="key-concepts-repeat">
+</div>
+
+<script>
+const wrapper = currentScript.parentElement
+const repeat = wrapper.querySelector(".key-concepts-repeat")
+
+
+
+
+	const render = () => {
+		
+	const nodes = [...document.querySelectorAll("div.key-concept")].filter(n => n.closest(".key-concepts-repeat") == null)
+	
+	repeat.innerHTML= ""
+	nodes.forEach((n) => {
+		const div = document.createElement("div")
+		div.style = "position: relative;    margin-block-end: 2em;"
+		
+		const a = document.createElement("a")
+		a.href = "#" + n.closest("pluto-cell").id
+		a.innerText = "↑ Jump to source"
+		a.style = `
+			position: absolute;
+		    box-shadow: 0 0 10px #0000001a;
+		    font-family: system-ui;
+		    font-weight: 600;
+		    text-decoration: none;
+		    display: inline-flex;
+		    background: var(--white);
+		    border-radius: 10rem;
+		    padding: 0.2em 0.8em;
+		    right: 5px;
+		    top: 5.5px;
+		`
+		div.appendChild(a)
+		div.appendChild(n.cloneNode(true))
+		repeat.appendChild(div)
+	})
+
+	}
+
+
+
+
+
+
+
+
+	// This mutationObserver code is from PlutoUI.TableOfContents. Check that code for the latest version with comments.
+const invalidated = { current: false }
+	const updateCallback = () => setTimeout(render, 1000)
+	render()
+updateCallback()
+const notebook = wrapper.closest("pluto-notebook")
+const mut_observers = { current: [] }
+const createCellObservers = () => {
+	mut_observers.current.forEach((o) => o.disconnect())
+	mut_observers.current = Array.from(notebook.querySelectorAll("pluto-cell")).map(el => {
+		const o = new MutationObserver(updateCallback)
+		o.observe(el, {attributeFilter: ["class"]})
+		return o
+	})
+}
+createCellObservers()
+const notebookObserver = new MutationObserver(() => {
+	updateCallback()
+	createCellObservers()
+})
+notebookObserver.observe(notebook, {childList: true})
+
+const bodyClassObserver = new MutationObserver(updateCallback)
+bodyClassObserver.observe(document.body, {attributeFilter: ["class"]})
+
+invalidation.then(() => {
+	invalidated.current = true
+	notebookObserver.disconnect()
+	bodyClassObserver.disconnect()
+	mut_observers.current.forEach((o) => o.disconnect())
+})
+	
+</script>
+
+"""
+
+# ╔═╡ 88d8b652-95a2-4451-b7c3-50dec7d88ca0
+# ╠═╡ skip_as_script = true
+#=╠═╡
+keyconceptsummary()
+  ╠═╡ =#
+
+# ╔═╡ d296808d-04be-483e-831c-32ef170e272b
+export keyconceptsummary
 
 # ╔═╡ Cell order:
 # ╟─6ca174aa-6395-485d-a396-83e220dbfcb7
@@ -382,7 +517,11 @@ x = x
 # ╠═73c6b1e4-52e7-42b4-82f7-c3ff0a951dfc
 # ╠═1b8ada7b-4996-4d75-baea-cc1f6ac74f5b
 # ╠═3af20543-447f-4525-ad99-6f4ccdc2b96e
+# ╠═f846b527-9cfc-4412-8b12-35dfec47840f
+# ╠═a0f06078-5caf-4312-9ad9-0719d40d29c3
 # ╟─21016357-2813-4f74-adab-ddde0b8b704b
+# ╟─51cbb5ef-9f8f-4570-8a35-5f6415302b9c
+# ╠═88d8b652-95a2-4451-b7c3-50dec7d88ca0
 # ╟─9f42a11b-97bd-4a7d-94c9-ba74494ae4d0
 # ╟─45c6db01-38ac-4779-a724-af8ac3a0ac66
 # ╠═90ad6438-7fd5-422c-a0f4-52a220919194
@@ -397,4 +536,5 @@ x = x
 # ╠═a2704374-33c2-479e-bad0-1bac6c244db1
 # ╠═d0931a54-3bff-4f2d-ad60-eb45721dfa0f
 # ╠═06051ef2-08b0-4d7d-bff9-9c2d407c65cc
+# ╠═d296808d-04be-483e-831c-32ef170e272b
 # ╠═6c723aec-e620-4820-b5e3-f7d55c4bb1dc
