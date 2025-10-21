@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.17
+# v0.20.19
 
 using Markdown
 using InteractiveUtils
@@ -319,6 +319,47 @@ exercise_statement("Your turn"; prefix="Inference ")
 # ╔═╡ 3b7b2e83-c1db-44ad-ad4e-52752c3e4d51
 exercises()
 
+# ╔═╡ 678bd199-71a5-4ded-969c-168ba2605c91
+md"""
+## Layout
+"""
+
+# ╔═╡ bc1f427c-538c-4a4d-9be5-ecfa542f959f
+const Div = PlutoUI.ExperimentalLayout.Div
+
+# ╔═╡ 0b542219-c593-4083-9a02-e9321db93555
+TwoColumn(a, b; wrapping_cutoff_px=400) = Div([
+	Div(a; style="flex: 1 0 $(wrapping_cutoff_px/2)px;"),
+	Div(b; style="flex: 1 0 $(wrapping_cutoff_px/2)px;"),
+]; style="display: flex; flex-direction: row; gap: 2%; flex-wrap: wrap;")
+
+# ╔═╡ c2bcc8f7-3c9a-40e6-9252-15fe4a1b775a
+# ╠═╡ skip_as_script = true
+#=╠═╡
+TwoColumn(1,2)
+  ╠═╡ =#
+
+# ╔═╡ c1ae92ae-ceda-4ab7-8ddd-e78f1da671de
+# ╠═╡ skip_as_script = true
+#=╠═╡
+TwoColumn(
+md"""
+Consider an addition node
+
+```math
+f_+(x,y,z) = \delta(z-x-y)
+```
+- Derive an expression for the outgoing message ``\overrightarrow{\mu}_{Z}(z)`` in terms of the incoming messages ``\overrightarrow{\mu}_{X}(\cdot)`` and ``\overrightarrow{\mu}_{Y}(\cdot)``.   
+
+""", 
+	
+@htl """
+
+<img src="https://github.com/bmlip/course/blob/main/assets/figures/ffg-addition-node.png?raw=true" alt=" " style="display: block; width: 100%; margin: 0 auto;">
+
+""")
+  ╠═╡ =#
+
 # ╔═╡ a2704374-33c2-479e-bad0-1bac6c244db1
 md"""
 ## Misc
@@ -533,7 +574,12 @@ export keyconceptsummary
 # ╠═8b144173-d002-4c6d-82bd-07c8e8921ddd
 # ╠═8dc656fe-0b25-47fd-b087-3ca4b1057e94
 # ╠═0fd086b3-81bf-4566-87cf-ec46ca19463e
-# ╠═a2704374-33c2-479e-bad0-1bac6c244db1
+# ╟─678bd199-71a5-4ded-969c-168ba2605c91
+# ╠═bc1f427c-538c-4a4d-9be5-ecfa542f959f
+# ╠═0b542219-c593-4083-9a02-e9321db93555
+# ╠═c2bcc8f7-3c9a-40e6-9252-15fe4a1b775a
+# ╠═c1ae92ae-ceda-4ab7-8ddd-e78f1da671de
+# ╟─a2704374-33c2-479e-bad0-1bac6c244db1
 # ╠═d0931a54-3bff-4f2d-ad60-eb45721dfa0f
 # ╠═06051ef2-08b0-4d7d-bff9-9c2d407c65cc
 # ╠═d296808d-04be-483e-831c-32ef170e272b
