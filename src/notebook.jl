@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.19
+# v0.20.21
 
 using Markdown
 using InteractiveUtils
@@ -319,6 +319,106 @@ exercise_statement("Your turn"; prefix="Inference ")
 # ╔═╡ 3b7b2e83-c1db-44ad-ad4e-52752c3e4d51
 exercises()
 
+# ╔═╡ bc1dfb2c-b9c2-4914-b48e-e9c32d9750ee
+md"""
+## Navigation
+"""
+
+# ╔═╡ b3a096f8-51b9-46af-8943-723463476288
+"""
+```julia
+navigate_prev_next(prev, next)
+```
+
+# Examples:
+You give two URLs, for the previous and next lecture.
+
+```julia
+navigate_prev_next(
+	"https://bmlip.github.io/course/lectures/Bayesian%20Machine%20Learning.html", 
+	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+)
+```
+
+You can leave one empty (`nothing`), if this is the first or last lecture.
+
+```julia
+navigate_prev_next(
+	nothing, 
+	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+)
+```
+
+
+
+"""
+function navigate_prev_next(prev, next)
+
+	
+	@htl """
+	<div class="bmlip-nextprev">
+	
+	
+	<a href=$prev>
+	← Previous lecture
+	
+	</a>
+	
+	
+	<a href=$next>
+	Next lecture →
+	</a>
+	
+	
+	
+	</div>
+	
+	<style>
+	
+	
+	.bmlip-nextprev {
+		font-family: system-ui;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		
+	    justify-content: space-between;
+		gap: 1em;
+	}
+	
+	.bmlip-nextprev a {
+		flex: 0 0 auto;
+		border: 2px solid #8886;
+		border-radius: .5em;
+		padding: 1em;
+		display: grid;
+		height: 5em;
+		place-items: center;
+	}
+	
+	.bmlip-nextprev a:not([href]) {
+		cursor: not-allowed;
+		opacity: .5;
+	}
+	
+	
+	</style>
+	
+	"""
+end
+
+# ╔═╡ a76fffd8-fe7a-4252-a23c-8e0115e46a65
+navigate_prev_next(
+	"https://bmlip.github.io/course/lectures/Bayesian%20Machine%20Learning.html", 
+	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+)
+
+# ╔═╡ bd47d366-804a-49ee-b78b-ec5b44551d91
+navigate_prev_next(
+	nothing, 
+	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+)
+
 # ╔═╡ 678bd199-71a5-4ded-969c-168ba2605c91
 md"""
 ## Layout
@@ -579,8 +679,12 @@ export keyconceptsummary
 # ╠═0b542219-c593-4083-9a02-e9321db93555
 # ╠═c2bcc8f7-3c9a-40e6-9252-15fe4a1b775a
 # ╠═c1ae92ae-ceda-4ab7-8ddd-e78f1da671de
+# ╟─bc1dfb2c-b9c2-4914-b48e-e9c32d9750ee
+# ╠═a76fffd8-fe7a-4252-a23c-8e0115e46a65
+# ╠═bd47d366-804a-49ee-b78b-ec5b44551d91
+# ╟─b3a096f8-51b9-46af-8943-723463476288
 # ╟─a2704374-33c2-479e-bad0-1bac6c244db1
 # ╠═d0931a54-3bff-4f2d-ad60-eb45721dfa0f
 # ╠═06051ef2-08b0-4d7d-bff9-9c2d407c65cc
 # ╠═d296808d-04be-483e-831c-32ef170e272b
-# ╠═6c723aec-e620-4820-b5e3-f7d55c4bb1dc
+# ╟─6c723aec-e620-4820-b5e3-f7d55c4bb1dc
