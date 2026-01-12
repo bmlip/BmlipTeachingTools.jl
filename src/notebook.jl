@@ -319,6 +319,47 @@ exercise_statement("Your turn"; prefix="Inference ")
 # ╔═╡ 3b7b2e83-c1db-44ad-ad4e-52752c3e4d51
 exercises()
 
+# ╔═╡ 678bd199-71a5-4ded-969c-168ba2605c91
+md"""
+## Layout
+"""
+
+# ╔═╡ bc1f427c-538c-4a4d-9be5-ecfa542f959f
+const Div = PlutoUI.ExperimentalLayout.Div
+
+# ╔═╡ 0b542219-c593-4083-9a02-e9321db93555
+TwoColumn(a, b; wrapping_cutoff_px=400) = Div([
+	Div(a; style="flex: 1 0 $(wrapping_cutoff_px/2)px;"),
+	Div(b; style="flex: 1 0 $(wrapping_cutoff_px/2)px;"),
+]; style="display: flex; flex-direction: row; gap: 2%; flex-wrap: wrap;")
+
+# ╔═╡ c2bcc8f7-3c9a-40e6-9252-15fe4a1b775a
+# ╠═╡ skip_as_script = true
+#=╠═╡
+TwoColumn(1,2)
+  ╠═╡ =#
+
+# ╔═╡ c1ae92ae-ceda-4ab7-8ddd-e78f1da671de
+# ╠═╡ skip_as_script = true
+#=╠═╡
+TwoColumn(
+md"""
+Consider an addition node
+
+```math
+f_+(x,y,z) = \delta(z-x-y)
+```
+- Derive an expression for the outgoing message ``\overrightarrow{\mu}_{Z}(z)`` in terms of the incoming messages ``\overrightarrow{\mu}_{X}(\cdot)`` and ``\overrightarrow{\mu}_{Y}(\cdot)``.   
+
+""", 
+	
+@htl """
+
+<img src="https://github.com/bmlip/course/blob/main/assets/figures/ffg-addition-node.png?raw=true" alt=" " style="display: block; width: 100%; margin: 0 auto;">
+
+""")
+  ╠═╡ =#
+
 # ╔═╡ bc1dfb2c-b9c2-4914-b48e-e9c32d9750ee
 md"""
 ## Navigation
@@ -407,6 +448,9 @@ function navigate_prev_next(prev, next)
 	"""
 end
 
+# ╔═╡ 2cba4ffe-8bf6-4820-a06c-21e0ef0f253f
+export navigate_prev_next
+
 # ╔═╡ a76fffd8-fe7a-4252-a23c-8e0115e46a65
 navigate_prev_next(
 	"https://bmlip.github.io/course/lectures/Bayesian%20Machine%20Learning.html", 
@@ -418,47 +462,6 @@ navigate_prev_next(
 	nothing, 
 	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
 )
-
-# ╔═╡ 678bd199-71a5-4ded-969c-168ba2605c91
-md"""
-## Layout
-"""
-
-# ╔═╡ bc1f427c-538c-4a4d-9be5-ecfa542f959f
-const Div = PlutoUI.ExperimentalLayout.Div
-
-# ╔═╡ 0b542219-c593-4083-9a02-e9321db93555
-TwoColumn(a, b; wrapping_cutoff_px=400) = Div([
-	Div(a; style="flex: 1 0 $(wrapping_cutoff_px/2)px;"),
-	Div(b; style="flex: 1 0 $(wrapping_cutoff_px/2)px;"),
-]; style="display: flex; flex-direction: row; gap: 2%; flex-wrap: wrap;")
-
-# ╔═╡ c2bcc8f7-3c9a-40e6-9252-15fe4a1b775a
-# ╠═╡ skip_as_script = true
-#=╠═╡
-TwoColumn(1,2)
-  ╠═╡ =#
-
-# ╔═╡ c1ae92ae-ceda-4ab7-8ddd-e78f1da671de
-# ╠═╡ skip_as_script = true
-#=╠═╡
-TwoColumn(
-md"""
-Consider an addition node
-
-```math
-f_+(x,y,z) = \delta(z-x-y)
-```
-- Derive an expression for the outgoing message ``\overrightarrow{\mu}_{Z}(z)`` in terms of the incoming messages ``\overrightarrow{\mu}_{X}(\cdot)`` and ``\overrightarrow{\mu}_{Y}(\cdot)``.   
-
-""", 
-	
-@htl """
-
-<img src="https://github.com/bmlip/course/blob/main/assets/figures/ffg-addition-node.png?raw=true" alt=" " style="display: block; width: 100%; margin: 0 auto;">
-
-""")
-  ╠═╡ =#
 
 # ╔═╡ a2704374-33c2-479e-bad0-1bac6c244db1
 md"""
@@ -680,6 +683,7 @@ export keyconceptsummary
 # ╠═c2bcc8f7-3c9a-40e6-9252-15fe4a1b775a
 # ╠═c1ae92ae-ceda-4ab7-8ddd-e78f1da671de
 # ╟─bc1dfb2c-b9c2-4914-b48e-e9c32d9750ee
+# ╠═2cba4ffe-8bf6-4820-a06c-21e0ef0f253f
 # ╠═a76fffd8-fe7a-4252-a23c-8e0115e46a65
 # ╠═bd47d366-804a-49ee-b78b-ec5b44551d91
 # ╟─b3a096f8-51b9-46af-8943-723463476288
