@@ -377,7 +377,7 @@ You give two URLs, for the previous and next lecture.
 ```julia
 navigate_prev_next(
 	"https://bmlip.github.io/course/lectures/Bayesian%20Machine%20Learning.html", 
-	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+	"https://bmlip.github.io/course/lectures/Density%20Estimation.html"
 )
 ```
 
@@ -386,7 +386,7 @@ You can leave one empty (`nothing`), if this is the first or last lecture.
 ```julia
 navigate_prev_next(
 	nothing, 
-	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+	"https://bmlip.github.io/course/lectures/Density%20Estimation.html"
 )
 ```
 
@@ -454,13 +454,13 @@ export navigate_prev_next
 # ╔═╡ a76fffd8-fe7a-4252-a23c-8e0115e46a65
 navigate_prev_next(
 	"https://bmlip.github.io/course/lectures/Bayesian%20Machine%20Learning.html", 
-	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+	"https://bmlip.github.io/course/lectures/Density%20Estimation.html"
 )
 
 # ╔═╡ bd47d366-804a-49ee-b78b-ec5b44551d91
 navigate_prev_next(
 	nothing, 
-	"https://bmlip.github.io/course/lectures/The%20Gaussian%20Distribution.html"
+	"https://bmlip.github.io/course/lectures/Density%20Estimation.html"
 )
 
 # ╔═╡ a2704374-33c2-479e-bad0-1bac6c244db1
